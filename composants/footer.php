@@ -26,7 +26,7 @@
         <div class="max-w-7xl mx-auto px-4 relative z-10">
             <div class="border-t border-purple-600/10 pt-10 mt-10">
                 <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-                    <p class="text-sm text-gray-900 uppercase tracking-widest font-medium">
+                    <p class="text-xs text-gray-900 uppercase tracking-widest font-medium">
                         &copy;
                         Copyright
                         <script>
