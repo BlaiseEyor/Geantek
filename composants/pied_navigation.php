@@ -6,7 +6,7 @@
     <meta name="description" content="Restaurant Vitalis, Restaurant Italien et Piscine">
     <meta name="keywords" content="Restaurant, Vitalis, Restaurant Vitalis">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar Restaurant Vitalis</title>
+    <title>Pied de Navigation | Geantek</title>
     <link rel="shortcut icon" href="../static/images/logo/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" rel="stylesheet" />

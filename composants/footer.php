@@ -6,13 +6,11 @@
     <meta name="description" content="Restaurant Vitalis, Restaurant Italien et Piscine">
     <meta name="keywords" content="Restaurant, Vitalis, Restaurant Vitalis">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar Restaurant Vitalis</title>
+    <title>Footer | Geantek</title>
     <link rel="shortcut icon" href="../static/images/logo/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" rel="stylesheet" />
-    <!-- Pour Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <!-- Pour Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/css/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -33,14 +31,14 @@
                         Copyright
                         <script>
                             document.write(new Date().getFullYear())
-                        </script> Vitalis | Tous droits réservés.
+                        </script> Geantek | Tous droits réservés.
                     </p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scrip de flowbide -->
+    <!-- Script de flowbite -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="static/js/aos.js"></script>
