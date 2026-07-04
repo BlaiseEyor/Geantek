@@ -24,7 +24,7 @@
                 Contact
                 <span class="absolute inset-x-0 bottom-0 h-0.5 w-0 bg-purple-600 transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="https://wa.me/33651115909"
+            <a href="https://wa.me/1(438)722-2726"
                 target="_blank"
                 class="flex items-center gap-2 rounded-full bg-purple-500 hover:bg-purple-600 text-white shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 px-5 py-2.5 text-sm font-semibold">
                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@
                     Contact
                 </a>
                 <div class="pt-4 border-t border-gray-100">
-                    <a href="https://wa.me/33651115909"
+                    <a href="https://wa.me/1(438)722-2726"
                         target="_blank"
                         class="flex items-center justify-center gap-2 rounded-full bg-purple-500 hover:bg-purple-600 text-white shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] px-5 py-3 text-sm font-semibold">
                         <svg xmlns="http://www.w3.org/2000/svg"
