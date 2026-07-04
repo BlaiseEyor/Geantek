@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: Geantek
+    runtime: docker
+    repo: https://github.com/BlaiseEyor/Geantek
