@@ -232,7 +232,7 @@ require_once __DIR__ . '/composants/lang.php';
         <section id="services" class="relative py-20 bg-slate-50 overflow-hidden scroll-mt-20">
             <div class="mx-auto max-w-7xl px-4">
                 <div class="mb-12 text-start">
-                    <span data-aos="fade-down" class="inline-block rounded-full bg-purple-600 px-4 py-2 animate-bounce text-xs font-semibold uppercase tracking-[0.35em] text-white">
+                    <span data-aos="fade-down" class="inline-block rounded-full bg-purple-600 px-4 py-2 animate-bounce text-xs font-semibold uppercase text-white">
                         <?= geantek_t('services_badge') ?>
                     </span>
                     <div class="mt-10 mb-16 max-w-3xl">
@@ -364,7 +364,7 @@ require_once __DIR__ . '/composants/lang.php';
             <div class="mx-auto max-w-7xl px-4">
                 <div class="grid gap-10 lg:grid-cols-2 items-start">
                     <div class="space-y-4">
-                        <span data-aos="fade-down" class="inline-block rounded-full animate-bounce bg-purple-600 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-white">
+                        <span data-aos="fade-down" class="inline-block rounded-full animate-bounce bg-purple-600 px-4 py-2 text-xs font-semibold uppercase text-white">
                             <?= geantek_t('contact_badge') ?>
                         </span>
                         <h2 data-aos="fade-up" class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
@@ -426,7 +426,7 @@ require_once __DIR__ . '/composants/lang.php';
                 <div class="rounded-3xl px-8 py-12 lg:px-14 lg:py-14 text-gray-900 shadow-2xl">
                     <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
                         <div>
-                            <span data-aos="fade-down" class="inline-block rounded-full bg-purple-500 px-4 py-2 text-xs text-white font-semibold uppercase tracking-[0.35em]"><?= geantek_t('newsletter_badge') ?></span>
+                            <span data-aos="fade-down" class="inline-block rounded-full bg-purple-500 px-4 py-2 text-xs text-white font-semibold uppercase"><?= geantek_t('newsletter_badge') ?></span>
                             <h2 data-aos="fade-up" class="mt-6 text-3xl font-extrabold sm:text-4xl"><?= geantek_t('newsletter_title') ?></h2>
                             <p data-aos="fade-up" data-aos-delay="100" class="mt-4 max-w-xl text-gray-600 leading-relaxed"><?= geantek_t('newsletter_text') ?></p>
                         </div>
