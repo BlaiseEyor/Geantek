@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html lang="fr">
+<?php
+session_start();
+if (isset($_GET['lang']) && in_array($_GET['lang'], ['fr', 'en'], true)) {
+    $_SESSION['language'] = $_GET['lang'];
+}
 
+$language = $_SESSION['language'] ?? 'fr';
+$GLOBALS['language'] = $language;
+require_once __DIR__ . '/composants/lang.php';
+?>
+<!DOCTYPE html>
+<html lang="<?= $language ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="GEANTEK - Entreprise de développement de solutions web et mobiles">
-    <title>Accueil - GEANTEK</title>
+    <meta name="description" content="<?= geantek_t('page_description') ?>">
+    <title><?= geantek_t('page_title') ?></title>
     <link rel="shortcut icon" href="static/images/logo/favicon.png">
     <!-- Tailwind CSS & Flowbite -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,13 +54,11 @@
                 <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div> -->
                 <div class="flex flex-col justify-center">
                     <h1 data-aos="zoom-in-right" class="mb-6 text-4xl font-extrabold text-gray-900 md:text-5xl lg:text-6xl leading-tight">
-                        Transformez <br>
+                        <?= geantek_t('hero_title_part1') ?> <br>
                         <span id="typewriter" class="text-purple-600"></span>
                     </h1>
                     <p data-aos="zoom-in-right" class="mb-6 text-gray-600 text-lg">
-                        Expert en développement web et progiciels de gestion
-                        sur mesure. Nous concrétisons vos idées avec des solutions
-                        technologiques innovantes et performantes.
+                        <?= geantek_t('hero_text') ?>
                     </p>
                     <!-- boutons -->
                     <div class="flex flex-wrap gap-4">
@@ -67,7 +74,7 @@
                                 <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                                 <rect width="20" height="14" x="2" y="6" rx="2" />
                             </svg>
-                            Voir nos services
+                            <?= geantek_t('hero_services') ?>
                         </a>
                         <a data-aos="zoom-in" href="https://wa.me/0169612436" class="flex items-center gap-2 rounded-full bg-white text-purple-600 border border-purple-600 hover:bg-[#9333EA] opacity-80 hover:text-white shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 px-5 py-2.5 text-sm font-semibold">
                             <svg class="h-5 w-5" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +87,7 @@
                                     c1.385-2.39,3.971-4,6.926-4c2.955,0,5.541,1.61,6.926,4H24.074z" />
                                 </g>
                             </svg>
-                            <span>Devenir partenaire</span>
+                            <span><?= geantek_t('hero_partner') ?></span>
                         </a>
                     </div>
                 </div>
@@ -123,25 +130,19 @@
                     </div>
                     <div class="relative z-10">
                         <span data-aos="zoom-in-right" class="inline-block animate-bounce px-4 py-2 rounded-full bg-purple-600 text-white text-sm font-bold uppercase tracking-widest mb-6">
-                            Qui sommes-nous ?
+                            <?= geantek_t('about_badge') ?>
                         </span>
                         <div class="mb-16 max-w-3xl">
                             <h2 data-aos="zoom-in-right" class="text-3xl font-extrabold leading-tight sm:text-4xl first-line:uppercase first-line:tracking-widest first-letter:float-start first-letter:me-3 first-letter:text-7xl first-letter:font-bold first-letter:text-purple-700">
-                                Et si on parlait un peu de GEANTEK ?
+                                <?= geantek_t('about_title') ?>
                             </h2>
                             <p data-aos="zoom-in-right" class="mt-4 text-gray-600 text-lg leading-relaxed">
-                                Partenaire technologique de confiance pour la transformation digitale, nous
-                                concevons des solutions web et logicielles sur mesure qui
-                                propulsent votre croissance. De la création de votre vitrine en
-                                ligne à l'optimisation complète de vos processus internes (ERP, CRM,
-                                RH, Logistique), notre expertise technique donne vie à des outils performants,
-                                évolutifs et parfaitement adaptés à vos défis métiers. Propulsez votre activité au
-                                niveau supérieur avec élégance et précision.
+                                <?= geantek_t('about_text') ?>
                             </p>
                         </div>
                         <div data-aos="fade-up" data-aos-delay="300" class="flex flex-wrap gap-4">
                             <a href="#about" class="flex items-center gap-2 rounded-full bg-purple-600 px-6 py-3.5 text-sm font-semibold text-white hover:bg-purple-700 shadow-md hover:shadow-purple-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
-                                En savoir plus
+                                <?= geantek_t('about_more') ?>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
@@ -151,7 +152,7 @@
                                     <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
                                     <circle cx="12" cy="12" r="3" />
                                 </svg>
-                                Découvrir nos services
+                                <?= geantek_t('about_services') ?>
                             </a>
                         </div>
                     </div>
@@ -161,11 +162,10 @@
                 <div class="mt-24">
                     <div class="mb-16 max-w-3xl">
                         <h2 data-aos="zoom-in-right" class="text-3xl font-extrabold leading-tight sm:text-4xl first-line:uppercase first-line:tracking-widest first-letter:float-start first-letter:me-3 first-letter:text-7xl first-letter:font-bold first-letter:text-purple-700">
-                            Notre Expertise ?
+                            <?= geantek_t('expertise_title') ?>
                         </h2>
                         <p data-aos="zoom-in-right" class="mt-4 text-gray-600 text-lg leading-relaxed">
-                            Nous combinons expertise technique et compréhension
-                            métier pour créer des solutions qui génèrent de la valeur.
+                            <?= geantek_t('expertise_text') ?>
                         </p>
                     </div>
                     <div class="grid grid-cols-1 lg:grid-cols-2 sm:grid-cols-4 gap-6">
@@ -177,10 +177,9 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <span class="text-sm font-bold text-gray-800 text-center">Innovation</span>
+                            <span class="text-sm font-bold text-gray-800 text-center"><?= geantek_t('innovation_title') ?></span>
                             <p class="text-gray-600 text-center">
-                                Technologies de pointe et approches
-                                modernes pour des solutions performantes.
+                                <?= geantek_t('innovation_text') ?>
                             </p>
                         </div>
 
@@ -192,10 +191,9 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <span class="text-sm font-bold text-gray-800 text-center">Sur-Mesure</span>
+                            <span class="text-sm font-bold text-gray-800 text-center"><?= geantek_t('custom_title') ?></span>
                             <p class="text-gray-600 text-center">
-                                Chaque projet est unique et mérite une
-                                solution adaptée à vos besoins spécifiques.
+                                <?= geantek_t('custom_text') ?>
                             </p>
                         </div>
 
@@ -207,11 +205,9 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <span class="text-sm font-bold text-gray-800 text-center">Accompagnement</span>
+                            <span class="text-sm font-bold text-gray-800 text-center"><?= geantek_t('support_title') ?></span>
                             <p class="text-gray-600 text-center">
-                                Support continu et formation pour
-                                assurer le succès de votre transformation
-                                digitale.
+                                <?= geantek_t('support_text') ?>
                             </p>
                         </div>
                         <!-- Élément 3 : Certification Halal -->
@@ -222,10 +218,9 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <span class="text-sm font-bold text-gray-800 text-center">Excellence</span>
+                            <span class="text-sm font-bold text-gray-800 text-center"><?= geantek_t('excellence_title') ?></span>
                             <p class="text-gray-600 text-center">
-                                Qualité, performance et sécurité au cœur
-                                de tous nos développements.
+                                <?= geantek_t('excellence_text') ?>
                             </p>
                         </div>
                     </div>
@@ -238,16 +233,14 @@
             <div class="mx-auto max-w-7xl px-4">
                 <div class="mb-12 text-start">
                     <span data-aos="fade-down" class="inline-block rounded-full bg-purple-600 px-4 py-2 animate-bounce text-xs font-semibold uppercase tracking-[0.35em] text-white">
-                        Nos services
+                        <?= geantek_t('services_badge') ?>
                     </span>
                     <div class="mt-10 mb-16 max-w-3xl">
                         <h2 data-aos="zoom-in-right" class="text-3xl font-extrabold leading-tight sm:text-4xl first-line:uppercase first-line:tracking-widest first-letter:float-start first-letter:me-3 first-letter:text-7xl first-letter:font-bold first-letter:text-purple-600">
-                            Des solutions digitales sur mesure pour votre entreprise.
+                            <?= geantek_t('services_title') ?>
                         </h2>
                         <p data-aos="zoom-in-right" class="mt-4 text-gray-600 text-lg leading-relaxed">
-                            GEANTEK accompagne chaque étape de votre
-                            transformation digitale avec des services adaptés
-                            à vos besoins métiers et à votre croissance.
+                            <?= geantek_t('services_text') ?>
                         </p>
                     </div>
                 </div>
@@ -262,9 +255,9 @@
                                 <path d="M6 6a8 8 0 0 0 12 0" />
                             </svg>
                         </div>
-                        <h3 class="mb-3 text-xl font-semibold text-gray-900">Sites Web Corporate</h3>
+                        <h3 class="mb-3 text-xl font-semibold text-gray-900"><?= geantek_t('service_corporate_title') ?></h3>
                         <p class="text-gray-600 leading-relaxed">
-                            Conception et développement de sites web professionnels pour présenter votre entreprise avec élégance et performance.
+                            <?= geantek_t('service_corporate_text') ?>
                         </p>
                     </article>
 
@@ -275,9 +268,9 @@
                                 <path d="M8 4L2 12l6 8" />
                             </svg>
                         </div>
-                        <h3 class="mb-3 text-xl font-semibold text-gray-900">Applications Web Sur Mesure</h3>
+                        <h3 class="mb-3 text-xl font-semibold text-gray-900"><?= geantek_t('service_web_title') ?></h3>
                         <p class="text-gray-600 leading-relaxed">
-                            Création d'applications web personnalisées adaptées à vos processus métier spécifiques.
+                            <?= geantek_t('service_web_text') ?>
                         </p>
                     </article>
 
@@ -289,9 +282,9 @@
                                 <path d="M18 19h.01" />
                             </svg>
                         </div>
-                        <h3 class="mb-3 text-xl font-semibold text-gray-900">E-commerce & Marketplaces</h3>
+                        <h3 class="mb-3 text-xl font-semibold text-gray-900"><?= geantek_t('service_ecommerce_title') ?></h3>
                         <p class="text-gray-600 leading-relaxed">
-                            Solutions complètes de commerce en ligne pour développer vos ventes et gérer votre catalogue.
+                            <?= geantek_t('service_ecommerce_text') ?>
                         </p>
                     </article>
 
@@ -303,9 +296,9 @@
                                 <path d="M12 15v2" />
                             </svg>
                         </div>
-                        <h3 class="mb-3 text-xl font-semibold text-gray-900">Progressive Web Apps (PWA)</h3>
+                        <h3 class="mb-3 text-xl font-semibold text-gray-900"><?= geantek_t('service_pwa_title') ?></h3>
                         <p class="text-gray-600 leading-relaxed">
-                            Applications web modernes offrant une expérience utilisateur native sur tous les appareils.
+                            <?= geantek_t('service_pwa_text') ?>
                         </p>
                     </article>
 
@@ -316,9 +309,9 @@
                                 <rect x="4" y="13" width="16" height="6" rx="2" />
                             </svg>
                         </div>
-                        <h3 class="mb-3 text-xl font-semibold text-gray-900">ERP - Gestion Intégrée</h3>
+                        <h3 class="mb-3 text-xl font-semibold text-gray-900"><?= geantek_t('service_erp_title') ?></h3>
                         <p class="text-gray-600 leading-relaxed">
-                            Systèmes de planification des ressources pour centraliser et optimiser tous vos processus d'entreprise.
+                            <?= geantek_t('service_erp_text') ?>
                         </p>
                     </article>
 
@@ -330,9 +323,9 @@
                                 <path d="M3 11h18" />
                             </svg>
                         </div>
-                        <h3 class="mb-3 text-xl font-semibold text-gray-900">CRM - Relation Client</h3>
+                        <h3 class="mb-3 text-xl font-semibold text-gray-900"><?= geantek_t('service_crm_title') ?></h3>
                         <p class="text-gray-600 leading-relaxed">
-                            Solutions de gestion de la relation client pour améliorer vos ventes et fidéliser votre clientèle.
+                            <?= geantek_t('service_crm_text') ?>
                         </p>
                     </article>
 
@@ -343,9 +336,9 @@
                                 <path d="M6 20v-1c0-2.21 1.79-4 4-4h4c2.21 0 4 1.79 4 4v1" />
                             </svg>
                         </div>
-                        <h3 class="mb-3 text-xl font-semibold text-gray-900">Solutions RH et Paie</h3>
+                        <h3 class="mb-3 text-xl font-semibold text-gray-900"><?= geantek_t('service_rh_title') ?></h3>
                         <p class="text-gray-600 leading-relaxed">
-                            Logiciels de gestion des ressources humaines et de traitement de la paie automatisé.
+                            <?= geantek_t('service_rh_text') ?>
                         </p>
                     </article>
 
@@ -357,9 +350,9 @@
                                 <path d="M12 13.17v7.83" />
                             </svg>
                         </div>
-                        <h3 class="mb-3 text-xl font-semibold text-gray-900">Gestion de Stock et Logistique</h3>
+                        <h3 class="mb-3 text-xl font-semibold text-gray-900"><?= geantek_t('service_logistic_title') ?></h3>
                         <p class="text-gray-600 leading-relaxed">
-                            Outils pour optimiser votre chaîne d'approvisionnement et gérer efficacement vos stocks.
+                            <?= geantek_t('service_logistic_text') ?>
                         </p>
                     </article>
                 </div>
@@ -372,21 +365,21 @@
                 <div class="grid gap-10 lg:grid-cols-2 items-start">
                     <div class="space-y-4">
                         <span data-aos="fade-down" class="inline-block rounded-full animate-bounce bg-purple-600 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-white">
-                            Contactez-nous
+                            <?= geantek_t('contact_badge') ?>
                         </span>
                         <h2 data-aos="fade-up" class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-                            Et si on parlait de votre prochain projet ?
+                            <?= geantek_t('contact_title') ?>
                         </h2>
                         <p data-aos="fade-up" data-aos-delay="100" class="max-w-xl text-gray-600 text-lg leading-relaxed">
-                            Notre équipe est prête à vous accompagner dans la création de solutions digitales performantes, sur mesure et à forte valeur ajoutée.
+                            <?= geantek_t('contact_text') ?>
                         </p>
                         <div class="grid gap-4 sm:grid-cols-2">
                             <div data-aos="fade-up" data-aos-delay="200" class="rounded-3xl bg-slate-50 p-6">
-                                <p class="text-sm font-semibold text-gray-500 uppercase">Email</p>
+                                <p class="text-sm font-semibold text-gray-500 uppercase"><?= geantek_t('contact_email') ?></p>
                                 <p class="mt-2 text-gray-900">contact@geantek.com</p>
                             </div>
                             <div data-aos="fade-up" data-aos-delay="300" class="rounded-3xl bg-slate-50 p-6">
-                                <p class="text-sm font-semibold text-gray-500 uppercase">Téléphone</p>
+                                <p class="text-sm font-semibold text-gray-500 uppercase"><?= geantek_t('contact_phone') ?></p>
                                 <p class="mt-2 text-gray-900">+1 (438) 722-2726</p>
                             </div>
                         </div>
@@ -401,26 +394,26 @@
                         </div>
                     </div>
                     <div data-aos="fade-left" class="rounded-3xl bg-slate-50 p-8 shadow-xl">
-                        <h3 class="text-2xl font-bold text-gray-900">Envoyez-nous un message</h3>
-                        <p class="mt-3 text-gray-600">Remplissez le formulaire ci-dessous et nous reviendrons vers vous rapidement.</p>
+                        <h3 class="text-2xl font-bold text-gray-900"><?= geantek_t('form_title') ?></h3>
+                        <p class="mt-3 text-gray-600"><?= geantek_t('form_text') ?></p>
                         <form class="mt-4 grid gap-6">
                             <div class="space-y-4">
-                                <label class="block text-sm font-semibold text-gray-700">Nom</label>
-                                <input type="text" placeholder="Votre nom" class="w-full rounded-full border border-gray-200 bg-white px-5 py-4 text-gray-900 focus:border-purple-600 focus:ring-purple-200 focus:ring-4 outline-none" />
+                                <label class="block text-sm font-semibold text-gray-700"><?= geantek_t('form_name') ?></label>
+                                <input type="text" placeholder="<?= geantek_t('form_name_placeholder') ?>" class="w-full rounded-full border border-gray-200 bg-white px-5 py-4 text-gray-900 focus:border-purple-600 focus:ring-purple-200 focus:ring-4 outline-none" />
                             </div>
                             <div class="space-y-4">
-                                <label class="block text-sm font-semibold text-gray-700">Email</label>
-                                <input type="email" placeholder="Votre email" class="w-full rounded-full border border-gray-200 bg-white px-5 py-4 text-gray-900 focus:border-purple-600 focus:ring-purple-200 focus:ring-4 outline-none" />
+                                <label class="block text-sm font-semibold text-gray-700"><?= geantek_t('form_email') ?></label>
+                                <input type="email" placeholder="<?= geantek_t('form_email_placeholder') ?>" class="w-full rounded-full border border-gray-200 bg-white px-5 py-4 text-gray-900 focus:border-purple-600 focus:ring-purple-200 focus:ring-4 outline-none" />
                             </div>
                             <div class="space-y-4">
-                                <label class="block text-sm font-semibold text-gray-700">Sujet</label>
-                                <input type="text" placeholder="Sujet du message" class="w-full rounded-full border border-gray-200 bg-white px-5 py-4 text-gray-900 focus:border-purple-600 focus:ring-purple-200 focus:ring-4 outline-none" />
+                                <label class="block text-sm font-semibold text-gray-700"><?= geantek_t('form_subject') ?></label>
+                                <input type="text" placeholder="<?= geantek_t('form_subject_placeholder') ?>" class="w-full rounded-full border border-gray-200 bg-white px-5 py-4 text-gray-900 focus:border-purple-600 focus:ring-purple-200 focus:ring-4 outline-none" />
                             </div>
                             <div class="space-y-4">
-                                <label class="block text-sm font-semibold text-gray-700">Message</label>
-                                <textarea rows="1" placeholder="Votre message" class="w-full rounded-full border border-gray-200 bg-white px-5 py-4 text-gray-900 focus:border-purple-600 focus:ring-purple-200 focus:ring-4 outline-none"></textarea>
+                                <label class="block text-sm font-semibold text-gray-700"><?= geantek_t('form_message') ?></label>
+                                <textarea rows="1" placeholder="<?= geantek_t('form_message_placeholder') ?>" class="w-full rounded-full border border-gray-200 bg-white px-5 py-4 text-gray-900 focus:border-purple-600 focus:ring-purple-200 focus:ring-4 outline-none"></textarea>
                             </div>
-                            <button type="submit" class="w-full rounded-full bg-purple-600 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-purple-200/20 transition hover:bg-purple-700">Envoyer le message</button>
+                            <button type="submit" class="w-full rounded-full bg-purple-600 px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-purple-200/20 transition hover:bg-purple-700"><?= geantek_t('form_submit') ?></button>
                         </form>
                     </div>
                 </div>
@@ -433,13 +426,13 @@
                 <div class="rounded-3xl px-8 py-12 lg:px-14 lg:py-14 text-gray-900 shadow-2xl">
                     <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
                         <div>
-                            <span data-aos="fade-down" class="inline-block rounded-full bg-purple-500 px-4 py-2 text-xs text-white font-semibold uppercase tracking-[0.35em]">Newsletter</span>
-                            <h2 data-aos="fade-up" class="mt-6 text-3xl font-extrabold sm:text-4xl">Recevez nos dernières actualités et offres.</h2>
-                            <p data-aos="fade-up" data-aos-delay="100" class="mt-4 max-w-xl text-gray-600 leading-relaxed">Abonnez-vous pour recevoir des conseils, des études de cas et des nouveautés directement dans votre boîte mail.</p>
+                            <span data-aos="fade-down" class="inline-block rounded-full bg-purple-500 px-4 py-2 text-xs text-white font-semibold uppercase tracking-[0.35em]"><?= geantek_t('newsletter_badge') ?></span>
+                            <h2 data-aos="fade-up" class="mt-6 text-3xl font-extrabold sm:text-4xl"><?= geantek_t('newsletter_title') ?></h2>
+                            <p data-aos="fade-up" data-aos-delay="100" class="mt-4 max-w-xl text-gray-600 leading-relaxed"><?= geantek_t('newsletter_text') ?></p>
                         </div>
                         <form data-aos="fade-left" data-aos-delay="200" class="flex flex-col gap-4 sm:flex-row">
-                            <input type="email" placeholder="Votre email" class="w-full rounded-full border border-gray-200 bg-white/10 px-5 py-4 text-gray-900 placeholder:text-gray-500 focus:border-purple-500 focus:bg-white/20 focus:outline-none focus:ring-2 focus:ring-purple-500" />
-                            <button type="submit" class="rounded-full bg-purple-600 px-8 py-4 text-sm font-semibold text-white transition hover:bg-purple-700">M'abonner</button>
+                            <input type="email" placeholder="<?= geantek_t('newsletter_placeholder') ?>" class="w-full rounded-full border border-gray-200 bg-white/10 px-5 py-4 text-gray-900 placeholder:text-gray-500 focus:border-purple-500 focus:bg-white/20 focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                            <button type="submit" class="rounded-full bg-purple-600 px-8 py-4 text-sm font-semibold text-white transition hover:bg-purple-700"><?= geantek_t('newsletter_submit') ?></button>
                         </form>
                     </div>
                 </div>
@@ -449,7 +442,7 @@
     </main>
 
     <button id="scroll-top-btn" type="button" class="fixed bottom-6 right-6 z-50 hidden flex h-12 w-12 items-center justify-center rounded-full bg-purple-600 text-white shadow-2xl shadow-purple-500/20 transition duration-300 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-300">
-        <span class="sr-only">Retour en haut</span>
+        <span class="sr-only"><?= geantek_t('scroll_top') ?></span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6">
             <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 15l-6-6-6 6" />
         </svg>
@@ -463,14 +456,14 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const words = [
-                "votre Vision Digitale.",
-                "votre Administration.",
-                "votre Gestion.",
-                "vos Services Publics.",
-                "vos Processus.",
-                "votre Organisation.",
-                "votre Collectivité.",
-                "votre Établissement."
+                "<?= $language === 'en' ? 'your Digital Vision.' : 'votre Vision Digitale.' ?>",
+                "<?= $language === 'en' ? 'your Administration.' : 'votre Administration.' ?>",
+                "<?= $language === 'en' ? 'your Management.' : 'votre Gestion.' ?>",
+                "<?= $language === 'en' ? 'your Public Services.' : 'vos Services Publics.' ?>",
+                "<?= $language === 'en' ? 'your Processes.' : 'vos Processus.' ?>",
+                "<?= $language === 'en' ? 'your Organization.' : 'votre Organisation.' ?>",
+                "<?= $language === 'en' ? 'your Community.' : 'votre Collectivité.' ?>",
+                "<?= $language === 'en' ? 'your Institution.' : 'votre Établissement.' ?>"
             ];
             const element = document.getElementById("typewriter");
 

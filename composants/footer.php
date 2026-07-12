@@ -27,11 +27,7 @@
             <div class="border-t border-purple-600/10 pt-10 mt-10">
                 <div class="flex flex-col md:flex-row justify-center items-center gap-6">
                     <p class="text-xs text-gray-900 uppercase tracking-widest font-medium">
-                        &copy;
-                        Copyright
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script> Geantek | Tous droits réservés.
+                        <?= geantek_t('footer_copyright') ?>
                     </p>
                 </div>
             </div>

@@ -20,8 +20,6 @@
 </head>
 
 <body>
-
-
     <!-- Pied de navigation -->
     <section>
         <div class="fixed z-50 w-[95%] h-16 max-w-lg -translate-x-1/2 bg-white/80 backdrop-blur-md border border-gray-200 rounded-full bottom-6 left-1/2 shadow-lg">
