@@ -76,7 +76,7 @@ require_once __DIR__ . '/composants/lang.php';
                             </svg>
                             <?= geantek_t('hero_services') ?>
                         </a>
-                        <a data-aos="zoom-in" href="https://wa.me/0169612436" class="flex items-center gap-2 rounded-full bg-white text-purple-600 border border-purple-600 hover:bg-[#9333EA] opacity-80 hover:text-white shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 px-5 py-2.5 text-sm font-semibold">
+                        <a data-aos="zoom-in" href="#contact" class="flex items-center gap-2 rounded-full bg-white text-purple-600 border border-purple-600 hover:bg-[#9333EA] opacity-80 hover:text-white shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 px-5 py-2.5 text-sm font-semibold">
                             <svg class="h-5 w-5" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <g id="Shopicon">
                                     <path d="M36.802,19.497C38.161,18.063,39,16.131,39,14c0-4.418-3.582-8-8-8s-8,3.582-8,8c0,2.131,0.839,4.063,2.198,5.497

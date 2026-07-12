@@ -98,7 +98,7 @@ $language = $GLOBALS['language'] ?? 'fr';
     </div>
 </header>
 
-<!-- navbar dynamic -->
+<!-- navbar dynamique -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const btn = document.getElementById('mobile-menu-btn');
